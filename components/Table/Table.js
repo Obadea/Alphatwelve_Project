@@ -194,8 +194,8 @@ const Table = () => {
             </div>
           </div>
           <div>
-            {eventData.slice(0, 10).map((item) => (
-              <div className="table-row-item dark:bg-primary-nav ">
+            {eventData.slice(0, 10).map((item, idx) => (
+              <div className="table-row-item dark:bg-primary-nav " key={idx}>
                 <p
                   className="cursor-pointer"
                   onClick={() => {

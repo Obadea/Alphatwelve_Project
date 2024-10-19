@@ -6,9 +6,10 @@ import './Card.css';
 const Cards = () => {
   return (
     <div className="flex justify-between gap-3">
-      {cardData.map((item) => (
+      {cardData.map((item, idx) => (
         <Card
           isPressable
+          key={idx}
           shadow="none"
           radius="sm"
           className="home-card-container dark:border-transparent dark:bg-primary-nav"
