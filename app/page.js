@@ -5,7 +5,7 @@ import Chart from '@/components/Chart/Chart';
 import ImgSwiper from '@/components/Swiper/Swiper';
 import Table from '@/components/Table/Table';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="home-container">
       <h1 className="text-2xl ">Welcome! here’s your summary</h1>
@@ -25,7 +25,9 @@ export default function Home() {
       <Table />
     </div>
   );
-}
+};
+
+export default Home;
 
 // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
 //   <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
