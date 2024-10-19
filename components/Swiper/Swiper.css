@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+  @layer utilities {
+    .swiper-container {
+      width: 505px;
+      height: 320px;
+      background: transparent;
+    }
+
+    .slide-content {
+      font-size: 24px;
+      color: white;
+      text-align: center;
+      height: 320px;
+      filter: brightness(80%);
+      cursor: grab;
+    }
+  }
+}
+
+/* Style for the Next Button */
+.swiper-button-next {
+  background: #fff; /* Add background color */
+  border-radius: 50%; /* Make it circular */
+  width: 24px; /* Adjust width */
+  height: 24px; /* Adjust height */
+  right: 10px; /* Position closer to the swiper container */
+}
+
+/* Style the icon  */
+.swiper-button-next::after {
+  font-size: 6px;
+  color: #000;
+  -webkit-text-stroke: 1.5px #000;
+}
+
+/* Style for the Prev Button Dark mode */
+html.dark .swiper-button-next {
+  background: #8576ff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  right: 10px;
+}
+
+/* Style the icon dark mode */
+html.dark .swiper-button-next::after {
+  font-size: 6px;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #fff;
+}
+
+/* Style for the Prev Button ligth mode */
+.swiper-button-prev {
+  background: #fff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  left: 10px;
+}
+
+/* Style the icon  */
+.swiper-button-prev::after {
+  font-size: 6px;
+  color: #000;
+  -webkit-text-stroke: 1.5px #000;
+}
+
+/* Style for the Prev Button Dark mode */
+html.dark .swiper-button-prev {
+  background: #8576ff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  left: 10px;
+}
+
+/* Style the icon dark mode */
+html.dark .swiper-button-prev::after {
+  font-size: 6px;
+  color: #fff;
+  -webkit-text-stroke: 1.5px #fff;
+}

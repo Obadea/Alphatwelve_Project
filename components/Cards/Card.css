@@ -1,0 +1,13 @@
+.home-card-container {
+  height: 88px;
+  padding: 16px;
+  border: 1px solid #f2f2f7;
+  min-width: 160px;
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+
+.char_swipper-container {
+  margin-top: 10px;
+}

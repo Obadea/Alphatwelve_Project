@@ -1,0 +1,97 @@
+/* defaulf  sidebar style*/
+.sidebar-open {
+  width: 240px;
+  height: 100vh;
+  padding: 8px;
+  padding-top: 16px;
+}
+
+.collapse-sidenav-container {
+  animation: nav-animation 0.4s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.sidebar-container {
+  animation: nav-animation-open 0.4s ease-in-out forwards;
+}
+
+/* style for nav collapse */
+.sidebar-collapse {
+  width: 64px;
+  height: 100vh;
+  display: flex;
+  padding: 16px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Nav logo */
+.nav-logo {
+  color: #2563eb;
+  border: 1px dotted #2563eb;
+  background: #93c5fd;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.nav-item-container {
+  margin-top: 4px;
+  margin-left: 17px;
+}
+
+/* notification style */
+.nav-message-dot {
+  margin-left: 54px;
+  background-color: red;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  color: #fff;
+}
+
+.collapse-nav-message-dot {
+  position: absolute;
+  background-color: red;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  top: 4.5px;
+  right: 3.5px;
+}
+
+/* sideNav  animation */
+@keyframes nav-animation {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* sideNav animation */
+@keyframes nav-animation-open {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

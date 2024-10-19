@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_28pt-Regular.ttf') format('truetype'),
+    url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.apexcharts-tooltip {
+  color: black; /* Change tooltip text color */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+
+  @layer utilities {
+    .text-balance {
+      text-wrap: balance;
+    }
+
+    .app-layout {
+      display: grid;
+      grid-template-columns: 0fr 1fr;
+      grid-template-rows: 1fr;
+    }
+
+    .home-container {
+      padding: 25px 30px;
+    }
+
+    .char_swipper-container {
+      display: flex;
+      gap: 18px;
+    }
+  }
+}
