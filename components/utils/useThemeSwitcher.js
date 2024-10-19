@@ -1,13 +1,27 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 
 const useThemeSwitcher = () => {
   const preferDarkQuery = '(prefer-color-scheme:dark)';
   const [mode, setMode] = useState('');
 
+  const [mediaQuery, setMediaQuery] = useState(
+    typeof window !== 'undefined' ? window.matchMedia(preferDarkQuery) : 'dark'
+  );
+  const [userPref, setUserPref] = useState(
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem('theme')
+      : 'dark'
+  );
+
   useEffect(() => {
-    const mediaQuery = window.matchMedia(preferDarkQuery);
-    const userPref = window.localStorage.getItem('theme');
+    if (typeof window !== 'undefined') {
+      setMediaQuery(window.matchMedia(preferDarkQuery));
+      setUserPref(window.localStorage.getItem('theme'));
+    }
+    // const mediaQuery = window.matchMedia(preferDarkQuery);
+    // const userPref = window.localStorage.getItem('theme');
 
     const handleChange = () => {
       if (userPref) {
