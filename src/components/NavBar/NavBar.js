@@ -1,10 +1,17 @@
 'use client';
+
 import { Avatar, Button, Switch, User } from '@nextui-org/react';
 // import ThemeChanger from '../ThemeChanger/ThemeChanger';
 import { navMenu, navMenuCollapse } from '../utils/constants';
 import './NavBar.css';
 import { useState } from 'react';
-import useThemeSwitcher from '../hooks/useThemeSwitcher';
+import dynamic from 'next/dynamic';
+// import useThemeSwitcher from '../hooks/useThemeSwitcher';
+// import useThemeSwitcher from '../hooks/useThemeSwitcher';
+
+// const ThemeSwitcher = dynamic(() => import('../hooks/useThemeSwitcher'), {
+//   ssr: false,
+// });
 
 const NavBar = () => {
   const [linkActive, setLinkActive] = useState(0);
@@ -104,7 +111,7 @@ const NavBar = () => {
               ))}
               <div className="nav-item-container">
                 {/* <ThemeChanger /> */}
-                <Switch
+                {/* <Switch
                   isSelected={mode === 'dark'}
                   onChange={() => {
                     setMode(mode === 'light' ? 'dark' : 'light');
@@ -116,7 +123,7 @@ const NavBar = () => {
                   }}
                 >
                   Dark mode
-                </Switch>
+                </Switch> */}
               </div>
               <div>
                 <User
