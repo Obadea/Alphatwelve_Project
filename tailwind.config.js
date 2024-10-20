@@ -31,6 +31,19 @@ module.exports = {
         base: '16px',
       },
     },
+    screens: {
+      midxl: { max: '1240px' },
+      // => @media (max-width: 1240px) { ... }
+
+      laptopmd: { max: '1024px' },
+      // => @media (max-width: 1024px) { ... }
+
+      tablet: { max: '768px' },
+      // => @media (max-width: 768px) { ... }
+
+      mobileL: { max: '425px' },
+      // => @media (max-width: 425px) { ... }
+    },
   },
   plugins: [nextui()],
 };
