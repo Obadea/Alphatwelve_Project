@@ -1,9 +1,6 @@
 import localFont from 'next/font/local';
 import './globals.css';
-// import NavBar from '@/components/NavBar/NavBar';
-import dynamic from 'next/dynamic';
-// import NavBar from '@/components/NavBar/NavBar';
-import Document from '@/components/document';
+import NavBar from '../components/NavBar/NavBar';
 
 const geistSans = localFont({
   src: './fonts/Inter-VariableFont_opsz,wght.ttf',
@@ -16,19 +13,16 @@ export const metadata = {
   description: 'An event management dashboard create with next app',
 };
 
-const NavBar = dynamic(() => import('@/components/NavBar/NavBar'), {
-  ssr: false,
-});
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} antialiased app-layout dark:bg-[#383544]`}
       >
-        <div className="h-lvh">{/* <NavBar /> */}</div>
+        <div className="h-lvh">
+          <NavBar />
+        </div>
         <div className="h-lvh overflow-y-scroll">{children}</div>
-        <Document />
       </body>
     </html>
   );
