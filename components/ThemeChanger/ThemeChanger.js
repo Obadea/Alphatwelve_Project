@@ -1,6 +1,6 @@
+'use client';
 import { Switch } from '@nextui-org/react';
-import { useEffect, useState } from 'react';
-import useThemeSwitcher from '../utils/useThemeSwitcher';
+import useThemeSwitcher from '../hooks/useThemeSwitcher';
 
 const ThemeChanger = () => {
   const [mode, setMode] = useThemeSwitcher();

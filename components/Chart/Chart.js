@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import useThemeSwitcher from '../utils/useThemeSwitcher';
+import useThemeSwitcher from '../hooks/useThemeSwitcher';
 import './Chart.css';
 import ReactApexChart from 'react-apexcharts';
 
