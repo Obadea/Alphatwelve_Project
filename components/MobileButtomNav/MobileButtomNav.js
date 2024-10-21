@@ -12,6 +12,7 @@ const MobileButtomNav = () => {
       <div className="flex items-center justify-between w-full backdrop-blur-sm z-[9999]">
         {mobileBottomNavItems.map((item, idx) => (
           <Button
+            key={idx}
             radius="none"
             onPress={() => setActiveMenu(idx)}
             size="sm"
