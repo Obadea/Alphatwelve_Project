@@ -70,6 +70,10 @@
   right: 3.5px;
 }
 
+.mobile-nav-container {
+  display: auto;
+}
+
 /* sideNav  animation */
 @keyframes nav-animation {
   0% {

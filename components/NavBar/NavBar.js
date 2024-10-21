@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <>
       <nav
-        className={`transition-all duration-300 ${
+        className={`transition-all duration-300  ${
           navCollapse ? 'sidebar-collapse' : 'sidebar-open'
         } border-r-1 border-primary-nav/10  dark:bg-primary-nav`}
       >

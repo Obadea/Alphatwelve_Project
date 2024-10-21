@@ -33,9 +33,22 @@ body {
       padding: 25px 30px;
     }
 
+    /* swiper js style */
     .char_swipper-container {
       display: flex;
       gap: 18px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    @media (max-width: 670px) {
+      .app-layout {
+        display: block;
+      }
+
+      .home-container {
+        padding: 25px 23px;
+      }
     }
   }
 }

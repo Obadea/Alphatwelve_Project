@@ -1,11 +1,11 @@
-import { Card } from '@nextui-org/react';
+import { Card, Tooltip } from '@nextui-org/react';
 import { cardData } from '../utils/constants';
 import { SvgInfoIcon } from '../utils/SvgIcons';
 import './Card.css';
 
 const Cards = () => {
   return (
-    <div className="flex justify-between gap-3">
+    <div className=" card-wrapper ">
       {cardData.map((item, idx) => (
         <Card
           isPressable
@@ -19,7 +19,11 @@ const Cards = () => {
               {item.name}
             </p>
             <div className="cursor-pointer mt-0.5">
-              <SvgInfoIcon className="stroke-icon-collapse dark:stroke-white" />
+              <Tooltip content="Just an additional feature" showArrow>
+                <div>
+                  <SvgInfoIcon className="stroke-icon-collapse dark:stroke-white" />
+                </div>
+              </Tooltip>
             </div>
           </div>
           <div className="flex items-center gap-2">

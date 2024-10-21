@@ -1,6 +1,8 @@
 import localFont from 'next/font/local';
 import './globals.css';
 import NavBar from '../components/NavBar/NavBar';
+import MobileNav from '@/components/MobileNav/MobileNav';
+import MobileButtomNav from '@/components/MobileButtomNav/MobileButtomNav';
 
 const geistSans = localFont({
   src: './fonts/Inter-VariableFont_opsz,wght.ttf',
@@ -19,10 +21,21 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} antialiased app-layout dark:bg-[#383544]`}
       >
-        <div className="h-lvh">
+        {/* Nav for tablet and laptop */}
+        <div className="h-lvh mobile:hidden">
           <NavBar />
         </div>
-        <div className="h-lvh overflow-y-scroll">{children}</div>
+
+        {/* Navbar for mobile */}
+        <div className="hidden mobile:block">
+          <MobileNav />
+        </div>
+        <div className="h-lvh overflow-y-scroll mobile:scrollbar-hide mobile:overflow-auto mobile:pb-20 mobile:h-[88lvh]">
+          {children}
+          <div className="hidden mobile:block mobile:fixed bottom-0 w-full">
+            <MobileButtomNav />
+          </div>
+        </div>
       </body>
     </html>
   );

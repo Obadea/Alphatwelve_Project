@@ -233,6 +233,25 @@ export const SvgEventIcon = ({ className, rest }) => (
   </svg>
 );
 
+export const SvgMobileUserIcon = ({ className, rest }) => (
+  <svg
+    width="19"
+    height="19"
+    viewBox="0 0 17 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}
+    className={className}
+  >
+    <path
+      d="M4.09753 13C5.244 11.625 6.96986 10.75 8.90008 10.75C10.8303 10.75 12.5562 11.625 13.7026 13M16.15 8C16.15 12.0041 12.9041 15.25 8.90002 15.25C4.89596 15.25 1.65002 12.0041 1.65002 8C1.65002 3.99594 4.89596 0.75 8.90002 0.75C12.9041 0.75 16.15 3.99594 16.15 8ZM11.15 6C11.15 7.24264 10.1427 8.25 8.90002 8.25C7.65738 8.25 6.65002 7.24264 6.65002 6C6.65002 4.75736 7.65738 3.75 8.90002 3.75C10.1427 3.75 11.15 4.75736 11.15 6Z"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
 export const SvgSpeaker2Icon = ({ className, rest }) => (
   <svg
     width="14"
@@ -422,6 +441,72 @@ export const SvgSortUpIcon = ({ className, rest }) => (
     <path
       d="M13 12H21M13 8H21M13 16H21M6 7V17M6 7L3 10M6 7L9 10"
       stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const SvgChevronCloseIcon = ({ className, rest }) => (
+  <svg
+    width="5"
+    height="8"
+    viewBox="0 0 5 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}
+    className={className}
+  >
+    <path
+      d="M0.75 0.75L4.25 4L0.75 7.25"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+export const SvgMenuIcon = ({ className, rest }) => (
+  <svg
+    width="18"
+    height="12"
+    viewBox="0 0 18 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}
+    className={className}
+  >
+    <path
+      d="M1 1H4M17 1H8M17 11H14M1 11H10M1 6H17"
+      stroke-width="1.5"
+      stroke-linecap="round"
+    />
+  </svg>
+);
+
+export const SvgMenuCloseIcon = ({ className, rest }) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}
+    className={className}
+  >
+    <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" fill="white" />
+    <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#484554" />
+    <path
+      d="M14.625 9.375L9.375 14.625"
+      stroke="#484554"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M9.375 9.375L14.625 14.625"
+      stroke="#484554"
+      stroke-width="1.5"
       stroke-linecap="round"
       stroke-linejoin="round"
     />

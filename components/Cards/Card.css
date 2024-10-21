@@ -1,3 +1,10 @@
+.card-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 11px;
+  margin-top: 20px;
+}
+
 .home-card-container {
   height: 88px;
   padding: 16px;
@@ -5,9 +12,17 @@
   min-width: 160px;
   width: 100%;
   border-radius: 2px;
-  margin-top: 20px;
 }
 
-.char_swipper-container {
-  margin-top: 10px;
+@media (max-width: 1024px) {
+  .card-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 670px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
