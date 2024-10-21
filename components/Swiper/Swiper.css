@@ -19,6 +19,32 @@ body {
       filter: brightness(80%);
       cursor: grab;
     }
+
+    @media (max-width: 1240px) {
+      .swiper-container {
+        width: 730px;
+        height: 500px;
+      }
+      .slide-content {
+        height: 500px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .swiper-container {
+        width: 385px;
+        height: auto;
+      }
+      .slide-content {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 670px) {
+      .swiper-container {
+        width: 320px;
+      }
+    }
   }
 }
 

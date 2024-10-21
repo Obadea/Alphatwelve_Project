@@ -9,6 +9,7 @@ import {
   SvgDoubleChevronRightIcon,
   SvgEventIcon,
   SvgHomeIcon,
+  SvgMobileUserIcon,
   SvgReport2Icon,
   SvgSettingsTwoIcon,
   SvgSpeaker2Icon,
@@ -22,38 +23,38 @@ export const navMenu = [
     icon: SvgHomeIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Events',
     icon: SvgCalenderIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Speakers',
     icon: SvgUserSpeakerIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Reports',
     icon: SvgDocumentIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Notifications',
     icon: SvgBellIcon,
     message: '3',
   },
   {
-    href: '/',
+    href: '#',
     text: 'Messages',
     icon: SvgDoubleChatIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Settings',
     icon: SvgSettingsTwoIcon,
   },
   {
-    href: '/',
+    href: '#',
     text: 'Collapse',
     icon: SvgDoubleChevronLeftIcon,
   },
@@ -127,6 +128,35 @@ export const cardData = [
     amount: '$500,000',
     icon: SvgArrowUptIcon,
     status: 'up',
+  },
+];
+
+export const mobileBottomNavItems = [
+  {
+    href: '/',
+    text: 'Home',
+    icon: SvgHomeIcon,
+  },
+  {
+    href: '#',
+    text: 'Events',
+    icon: SvgCalenderIcon,
+  },
+  {
+    href: '#',
+    text: 'Speakers',
+    icon: SvgUserSpeakerIcon,
+  },
+  {
+    href: '#',
+    text: 'Reports',
+    icon: SvgDocumentIcon,
+  },
+
+  {
+    href: '#',
+    text: 'Profile',
+    icon: SvgMobileUserIcon,
   },
 ];
 

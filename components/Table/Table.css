@@ -93,3 +93,20 @@ html.dark .table-data-container {
   font-weight: 700;
   margin-top: 140px;
 }
+
+@media (max-width: 1240px) {
+  .table-filter-wrapper {
+    align-items: unset;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .table-filter-container {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-input {
+    width: auto;
+  }
+}

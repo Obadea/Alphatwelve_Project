@@ -1,8 +1,11 @@
 import {
+  Accordion,
+  AccordionItem,
   Avatar,
   AvatarGroup,
   Button,
   Chip,
+  cn,
   Input,
   Modal,
   ModalBody,
@@ -13,17 +16,18 @@ import {
   SelectItem,
   useDisclosure,
 } from '@nextui-org/react';
-import './Table.css';
 import {
   SvgDownloadIcon,
   SvgSearchIcon,
   SvgSortUpIcon,
   SvgThreeDotIcon,
+  SvgChevronCloseIcon,
 } from '../utils/SvgIcons';
 import { eventData } from '../utils/constants';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import './MobileTable.css';
 
-const Table = () => {
+const MobileTable = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [modalData, setModalData] = useState(null);
 
@@ -35,8 +39,7 @@ const Table = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortEventName, setSortEventName] = useState(false);
-  const [sortDate, setSortDate] = useState(false);
-  const [sortSpeaker, setSortSpeaker] = useState(false);
+  const [sortStatus, setSortStatus] = useState(false);
 
   // Filtered data logic
   const filteredData = eventData
@@ -61,11 +64,8 @@ const Table = () => {
       if (sortEventName) {
         return a.eventName.localeCompare(b.eventName);
       }
-      if (sortDate) {
-        return a.date.localeCompare(b.date);
-      }
-      if (sortSpeaker) {
-        return a.speaker.localeCompare(b.speaker);
+      if (sortStatus) {
+        return a.status.localeCompare(b.status);
       }
       if (sort === 'Most Recent') {
         return new Date(b.date) - new Date(a.date);
@@ -112,51 +112,52 @@ const Table = () => {
                   <AvatarGroup size="sm">
                     <Avatar
                       src="./avatarImage.png"
-                      classNames={{ base: 'border-2 border-white' }}
+                      classNames={{ base: 'border-2 border-transparent' }}
                     />
                     <Avatar
                       src="./avatarImage2.png"
-                      classNames={{ base: 'border-2 border-white' }}
+                      classNames={{ base: 'border-2 border-transparent' }}
                     />
                     <Avatar
                       src="./avatarImage3.png"
-                      classNames={{ base: 'border-2 border-white' }}
+                      classNames={{ base: 'border-2 border-transparent' }}
                     />
                   </AvatarGroup>
                   <p>{`${modalData?.numGuestSpeakers} Guest Speakers: ${modalData?.speaker}`}</p>
                   <p>{`${modalData?.attendees} Attendees`}</p>
                 </div>
               </ModalBody>
-              <ModalFooter className="flex justify-between items-center py-5 bg-[#F8FAFC] dark:bg-primary-unselect">
+              <ModalFooter className="flex justify-between flex-col items-center py-5 bg-[#F8FAFC] gap-3 dark:bg-primary-unselect">
                 <Button
                   variant="bordered"
-                  className="border-1"
+                  className="bg-white w-full text-black"
                   onPress={onClose}
                   radius="none"
                 >
-                  Close
+                  Edit
                 </Button>
-                <div className="space-x-2">
-                  <Button color="danger" radius="none">
-                    Delete
-                  </Button>
-                  <Button className="bg-primary-dark text-white" radius="none">
-                    Mark as completed
-                  </Button>
-                </div>
+                <Button color="danger" radius="none" className=" w-full">
+                  Delete
+                </Button>
+                <Button
+                  className="bg-primary-dark text-white  w-full"
+                  radius="none"
+                >
+                  Mark as completed
+                </Button>
               </ModalFooter>
             </>
           )}
         </ModalContent>
       </Modal>
 
-      <div className="table-container">
-        <div className="table-filter-wrapper">
-          <div className="table-filter-container">
+      <div className="mobile-table-container">
+        <div className="mobile-table-filter-wrapper">
+          <div className="mobile-table-filter-container">
             <Input
               type="search"
               radius="none"
-              className="table-input "
+              className="mobile-table-input"
               placeholder="Search..."
               variant="bordered"
               classNames={{
@@ -168,7 +169,7 @@ const Table = () => {
               onChange={handleSearch}
             />
             <Select
-              className="table-select"
+              className="mobile-table-select"
               radius="none"
               variant="bordered"
               placeholder="Date"
@@ -182,7 +183,7 @@ const Table = () => {
               <SelectItem key="Last Week">Last Week</SelectItem>
             </Select>
             <Select
-              className="w-28"
+              className=""
               radius="none"
               variant="bordered"
               placeholder="Status"
@@ -196,7 +197,7 @@ const Table = () => {
               <SelectItem key="In Progress">In Progress</SelectItem>
             </Select>
             <Select
-              className="w-28"
+              className=""
               radius="none"
               variant="bordered"
               placeholder="Name"
@@ -209,15 +210,11 @@ const Table = () => {
                 Obadiah Gbenga
               </SelectItem>
             </Select>
-            <p className="font-semibold tablet:hidden">{`Displaying ${filteredData.length} results`}</p>
+            <p className="font-semibold mb-3">{`Displaying ${filteredData.length} results`}</p>
           </div>
-          <div className="flex items-center gap-2 place-self-end tablet:justify-between tablet:place-self-start">
-            <p className="hidden font-semibold tablet:block mr-4 text-xs">
-              {'Num: ' + filteredData.length}
-            </p>
-            <p className="tablet:hidden">Sort:</p>
+          <div className="mobile-table-sort-container">
+            <p className="">Sort:</p>
             <Select
-              className="w-36"
               radius="none"
               variant="bordered"
               placeholder="Most Recent"
@@ -251,14 +248,13 @@ const Table = () => {
         </div>
 
         {/* Table */}
-        <div className="table-row-wrapper">
-          <div className="table-row-header">
+        <div className="mobile-table-row-wrapper">
+          <div className="mobile-table-row-header">
             <div
-              className="tabel-single-header"
+              className="mobile-table-single-header"
               onClick={() => {
                 setSortEventName(!sortEventName);
-                setSortDate(false);
-                setSortSpeaker(false);
+                setSortStatus(false);
               }}
             >
               <p>Event Name</p>
@@ -268,93 +264,89 @@ const Table = () => {
                 ''
               )}
             </div>
+
             <div
-              className="tabel-single-header"
+              className="mobile-table-single-header"
               onClick={() => {
-                setSortDate(!sortDate);
-                setSortEventName(false);
-                setSortSpeaker(false);
-              }}
-            >
-              <p>Date</p>
-              {sortDate ? (
-                <SvgSortUpIcon className="stroke-[#64748b] dark:stroke-primary-dark" />
-              ) : (
-                ''
-              )}
-            </div>
-            <div
-              className="tabel-single-header"
-              onClick={() => {
-                setSortSpeaker(!sortSpeaker);
-                setSortDate(false);
+                setSortStatus(!sortStatus);
                 setSortEventName(false);
               }}
             >
-              <p>Speaker</p>
-              {sortSpeaker ? (
-                <SvgSortUpIcon className="stroke-[#64748b] dark:stroke-primary-dark" />
-              ) : (
-                ''
-              )}
-            </div>
-            <div className="tabel-single-header">
               <p>Status</p>
+              {sortStatus ? (
+                <SvgSortUpIcon className="stroke-[#64748b] dark:stroke-primary-dark" />
+              ) : (
+                ''
+              )}
             </div>
           </div>
           <div>
-            <div className="table-data-container overflow-y-auto overflow-x-hidden">
-              {paginatedData.map((item, idx) => (
-                <div className="table-row-item dark:bg-primary-nav" key={idx}>
-                  <p
-                    className="cursor-pointer p-4 truncate"
-                    onClick={() => {
-                      setModalData(item);
-                      onOpen();
+            <div className="overflow-y-auto overflow-x-hidden">
+              <Accordion showDivider={false} className="p-0">
+                {paginatedData.map((item, idx) => (
+                  <AccordionItem
+                    key={item.eventName}
+                    aria-label={item.eventName}
+                    indicator={
+                      <SvgChevronCloseIcon className="dark:stroke-white stroke-icon-collapse" />
+                    }
+                    classNames={{
+                      startContent: ' w-2 ml-1 data-[open=true]:bg-slate-200',
+                      trigger: 'gap-0 flex-row-reverse',
+                      indicator: 'data-[open=true]:rotate-90 ml-1',
                     }}
+                    title={
+                      <div className="mobile-table-row-item">
+                        <p className="px-4 truncate">{item.eventName}</p>
+
+                        {/* Chip */}
+                        <div className="px-4">
+                          <Chip
+                            size="sm"
+                            className={
+                              item.status === 'Completed'
+                                ? 'border-0 border-success text-white bg-success'
+                                : 'border-0 bg-primary-dark text-white'
+                            }
+                          >
+                            {item.status}
+                          </Chip>
+                        </div>
+                      </div>
+                    }
                   >
-                    {item.eventName}
-                  </p>
-                  <p className="p-4 truncate">{item.date}</p>
-                  <p className="p-4 truncate">{item.speaker}</p>
-                  <div className="p-4">
-                    <Chip
-                      variant="dot"
-                      className={
-                        item.status === 'Completed'
-                          ? 'border-0 border-success text-success bg-[#D1FAE5] dark:bg-transparent dark:border-1'
-                          : ' bg-[#DBEAFE] border-0 border-primary-dark text-primary-dark dark:bg-transparent dark:border-1'
-                      }
-                      classNames={{
-                        dot:
-                          item.status === 'Completed'
-                            ? 'bg-success '
-                            : 'bg-primary-dark',
+                    <div className="dark:bg-primary-nav flex justify-between items-center px-4 gap-3 text-[13px]">
+                      <p className="py-3 truncate ">{item.speaker}</p>
+                      <p className="py-3 truncate">{item.date}</p>
+                    </div>
+                    <Button
+                      radius="none"
+                      onPress={() => {
+                        setModalData(item);
+                        onOpen();
                       }}
-                      color={
-                        item.status === 'Completed' ? 'success' : 'primary'
-                      }
+                      className="mobile-open-modal-btn "
                     >
-                      {item.status}
-                    </Chip>
-                  </div>
-                </div>
-              ))}
+                      REPLACE
+                    </Button>
+                  </AccordionItem>
+                ))}
+              </Accordion>
 
               {paginatedData.length <= 0 && search ? (
-                <div className="no-data-table">{`No Search Query for "${search}"`}</div>
+                <div className="mobile-no-data-table">{`No Search Query for "${search}"`}</div>
               ) : paginatedData.length <= 0 ? (
-                <div className="no-data-table">No Data Available</div>
+                <div className="mobile-no-data-table">No Data Available</div>
               ) : (
                 ''
               )}
             </div>
 
             {/* Pagination */}
-            <div className="table-pagination">
+            <div className="mobile-table-pagination">
               <div
                 className="flex justify-between
-              items-center min-w-40"
+                  items-center min-w-40"
               >
                 <Button
                   variant="bordered"
@@ -379,6 +371,7 @@ const Table = () => {
                       'bg-primary-dark'
                     }`,
                   }}
+                  className="z-0"
                   onChange={setCurrentPage}
                 />
 
@@ -398,7 +391,6 @@ const Table = () => {
 
               {/* Note: Number of Data to show */}
               <div className="flex items-center  gap-2">
-                <p>Show:</p>
                 <Select
                   className="w-20"
                   radius="none"
@@ -425,4 +417,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default MobileTable;
