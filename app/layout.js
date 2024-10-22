@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} antialiased app-layout dark:bg-[#383544]`}
+        className={`${geistSans.variable} antialiased app-layout dark:bg-customDark`}
       >
         {/* Nav for tablet and laptop */}
         <div className="h-lvh mobile:hidden">
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <div className="hidden mobile:block">
           <MobileNav />
         </div>
-        <div className="h-lvh overflow-y-scroll mobile:scrollbar-hide mobile:overflow-auto mobile:pb-20 mobile:h-[88lvh]">
+        <div className="h-lvh overflow-y-scroll mobile:scrollbar-hide mobile:overflow-auto mobile:pb-20 mobile:h-[89lvh]">
           {children}
           <div className="hidden mobile:block mobile:fixed bottom-0 w-full">
             <MobileButtomNav />

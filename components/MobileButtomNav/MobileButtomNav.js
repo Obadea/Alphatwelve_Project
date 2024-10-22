@@ -9,7 +9,7 @@ const MobileButtomNav = () => {
 
   return (
     <div className="border-t-1 border-white/50 w-full">
-      <div className="flex items-center justify-between w-full backdrop-blur-sm z-[9999]">
+      <div className="flex items-center justify-between w-full backdrop-blur-md z-[9999] bg-customDark/80">
         {mobileBottomNavItems.map((item, idx) => (
           <Button
             key={idx}
